@@ -1,4 +1,15 @@
 <div class="row">
+  <div class="col-3">
+    <p>Buscar Productos</p>
+  </div>
+  <div class="col-9">
+    <input aria-label="Search" type="search" placeholder="Busca un producto por nombre" class="form-control" (keyup)="loadProduct()"
+    [(ngModel)]="search">
+  </div>
+</div>
+
+
+<div class="row">
     <div class="col-md-4 p-4" *ngFor="let photo of photos">
         <div class="card card-photo" (click)="selectedCard(photo._id)">
             <div class="card-header">

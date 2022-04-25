@@ -24,9 +24,9 @@ export class PhotoService {
   }
 
   //Traer todas las fotos
-  getPhotos() {
-    return this.http.get<Photo[]>(this.URI);
-  }
+  getPhotos(filter) {
+    return this.http.get<Photo[]>(`${this.URI}/${filter}`);
+    }
 
   getPhoto(id: string) {
     return this.http.get<Photo>(`${this.URI}/${id}`);
@@ -39,4 +39,7 @@ export class PhotoService {
   updatePhoto(id: string, title: string, description: string) {
     return this.http.put(`${this.URI}/${id}`, {title, description});
   }
+
+
+
 }

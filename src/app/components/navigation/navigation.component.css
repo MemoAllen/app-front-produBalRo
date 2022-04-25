@@ -1,0 +1,16 @@
+a.iniciar:hover {
+  color: hotpink !important;
+}
+a.logout:hover{
+  color: red !important;
+}
+a{
+  text-decoration: none;
+}
+
+
+.navigations {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}

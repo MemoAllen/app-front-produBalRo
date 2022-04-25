@@ -1,0 +1,21 @@
+
+/*************************/
+/*     18. Copyright     */
+/*********s****************/
+.footer {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	text-align: center;
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.copyrights p,
+.copyrights a {
+	color: #dfe5ec;
+	text-decoration: none;
+}
+
