@@ -11,10 +11,9 @@ import { AuthService } from "src/app/services/auth.service";
 })
 export class ForgotPasswordComponent implements OnInit {
   form: FormGroup;
-  user: any = {};
+
   constructor(
     private authService: AuthService,
-    private router: Router,
     private http: HttpClient,
     private formBuilder: FormBuilder
   ) {}
@@ -26,8 +25,8 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   submit() {
-    this.authService.forgotPasword(this.form),
-      this.form.getRawValue().subscribe(() => {
+    this.authService.forgotPasword(this.form.getRawValue())
+     .subscribe(res => {
         console.log("success");
       });
   }

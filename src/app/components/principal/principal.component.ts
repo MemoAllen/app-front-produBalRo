@@ -20,29 +20,39 @@ export class PrincipalComponent implements OnInit {
   }
 
   photos: Photo[] = [];
+  search: string;
 
 
 
   selectedCard(id: string) {
-    this.router.navigate(['/photos', id]);
+    this.router.navigate(['/products', id]);
   }
 
 
 
   ngOnInit() {
+
+
     const wordWait = 3000;
     this.verb = this.verbList[Math.floor(Math.random() * this.verbList.length)];
 
     setInterval(() => this.updateWord(), wordWait);
 
-        // //implementacino de metodo service
-        // this.photoService.getPhotos()
-        // .subscribe(
-        //   res => {
-        //     this.photos = res;
-        //   },
-        //   err => console.log(err)
-        // )
+        //implementacino de metodo service
+
+        const filter =
+        (typeof this.search == "string" && this.search.length > 0)
+          ? `?searchBy=${this.search}`
+          : "";
+
+          this.photoService.getPhotos(filter).subscribe(
+            (productsSearch)=>{
+              this.photos=productsSearch
+            },(error)=>{
+              console.error(error);
+            }
+          )
+
   }
 
 

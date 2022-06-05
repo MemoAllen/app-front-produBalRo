@@ -1,0 +1,11 @@
+<div class="container">
+  <form [formGroup]="form" (submit)="submit()">
+  <input type="text" name="confirm" formControlName="token"  matInput [(ngModel)]="user.token">
+
+
+  <button class="btn btn-success">
+   Guardar
+</button>
+</form>
+
+</div>

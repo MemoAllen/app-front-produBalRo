@@ -1,8 +1,19 @@
-<div class="row">
-  <div class="col-3">
-    <p>Buscar Productos</p>
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active"><a  style="text-decoration: none;" routerLink="/photos">Mis productos</a></li>
+
+  </ol>
+</nav>
+
+
+
+<div class="row mb-4">
+  <div class="col-2">
+    <p><b> Buscar Productos:</b></p>
   </div>
-  <div class="col-9">
+  <div class="">
     <input aria-label="Search" type="search" placeholder="Busca un producto por nombre" class="form-control" (keyup)="loadProduct()"
     [(ngModel)]="search">
   </div>

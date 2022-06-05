@@ -9,6 +9,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from './auth.guard';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ProductsPreviewComponent } from './components/products-preview/products-preview.component';
+import { ConfirmSignComponent } from './components/confirm-sign/confirm-sign.component';
 
 const routes: Routes = [
   {
@@ -24,7 +27,8 @@ const routes: Routes = [
   },
   {
     path: 'photos/:id',
-    component: PhotoPreviewComponent
+    component: PhotoPreviewComponent,
+    canActivate:[AuthGuard]
 
   },
   {
@@ -52,6 +56,18 @@ const routes: Routes = [
   {
     path:'forgot',
     component:ForgotPasswordComponent
+  },
+  {
+    path:'reset/:token',
+    component:ResetPasswordComponent
+  },
+  {
+    path:'products/:id',
+    component:ProductsPreviewComponent
+  },
+  {
+    path:'confirm',
+    component:ConfirmSignComponent
   }
 ];
 

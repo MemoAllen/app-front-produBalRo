@@ -18,11 +18,11 @@
                     <a class="nav-link" routerLink="/photos/new" routerLinkActive="active">Añadir un producto</a>
                 </li>
 
+
                 <ng-container *ngIf="!authService.loggedIn(); else viewLogout">
                   <li class="nav-item">
-                    <a class="nav-link iniciar" routerLink="/signin" routerLinkActive="active">Iniciar Sesión</a>
+                    <a class="nav-link iniciar" routerLink="/signin" routerLinkActive="active">Eres administrador?</a>
                 </li>
-
                 </ng-container>
                 <ng-template #viewLogout>
 

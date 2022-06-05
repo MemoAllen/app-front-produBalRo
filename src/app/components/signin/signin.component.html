@@ -2,21 +2,36 @@
   <div class="col-md-4 mx-auto">
       <div class="card">
           <div class="card-header">
-              SignIn
+              Iniciar Sesión
           </div>
           <div class="card-body">
-              <form (submit)="signIn()">
-                  <div class="form-group">
-                      <input type="text" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" required autofocus>
-                  </div>
-                  <div class="form-group">
-                      <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password" required>
-                  </div>
+              <form [formGroup]="loginForm"  (submit)="signIn()">
+                <mat-form-field appearance="outline"  class="full-width">
+                  <mat-label> Correo Electronico </mat-label>
+                      <input type="text" formControlName="username"  matInput [(ngModel)]="user.email" name="email" (keypress)="lentrasOnly($event)"
+                      placeholder="Correo Electronico" maxlength="30" oninput="this.value = this.value.toLowerCase()" ngModel required autofocus>
+                      <mat-error *ngIf="isValidField('username')">
+                        {{getErrorMessage('username')}}
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>Contraseña</mat-label>
+                      <input  [type]="hide ? 'password' : 'text'" formControlName="password" type="password"  matInput [(ngModel)]="user.password" name="password"  placeholder="Contraseña"
+                      ngModel required maxlength="20">
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      <mat-error *ngIf="isValidField('password')">
+                        {{getErrorMessagePassword('password')}}
+                      </mat-error>
+                   </mat-form-field>
+
                   <button class="btn btn-success btn-block">
-                      SignIn
+                      Iniciar Sesión
                   </button>
                   <br>
-                  <a style="cursor: pointer;" (click)="forgotPassword()"> <p style="text-align: right; font-size: small;"> Reset Password</p></a>
+                  <a style="cursor: pointer;" (click)="forgotPassword()"> <p style="text-align: right; font-size: small;">Olvidaste Contraseña</p></a>
               </form>
           </div>
       </div>

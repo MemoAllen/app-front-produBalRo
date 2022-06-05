@@ -4,3 +4,11 @@ export interface Photo {
     description: String;
     imagePath: string;
 }
+
+
+
+export interface UserResponse{
+  message:string;
+  token:string;
+  code:number;
+}

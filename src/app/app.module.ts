@@ -20,6 +20,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ConfirmSignComponent } from './components/confirm-sign/confirm-sign.component';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +38,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     ProductsPreviewComponent,
     ForgotPasswordComponent,
+    ResetPasswordComponent,
+    ConfirmSignComponent,
 
   ],
   entryComponents:[ForgotPasswordComponent],
@@ -44,6 +50,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    AutocompleteLibModule,
     BrowserAnimationsModule],
   providers: [AuthGuard,{
     provide:HTTP_INTERCEPTORS,
